@@ -1,6 +1,6 @@
 <?php
 $host = getenv('IP');
-$username = 'dondroid';
+$username = 'lab7_user';
 $password = 'Don@#201$';
 $dbname = 'world';
 $input = $_GET['country'];
@@ -14,9 +14,20 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
-<ul>
+<table align="center" border="1px" style= "width:600px; line-height:40px;">
+    <tr>
+        <th>Name</th>
+        <th>Continent</th>
+        <th>Independence Year</th>
+        <th>Head of State</th>
+    </tr>
 <?php foreach ($results as $row): ?>
-  <li><?= $row['name'] . ' is ruled by ' . $row['head_of_state']; ?></li>
+    <tr>
+  <td><?= $row['name']; ?></td>
+  <td><?= $row['continent']; ?></td>
+  <td><?= $row['independence_year']; ?></td>
+  <td><?= $row['head_of_state']; ?></td>
+  </tr>
 <?php endforeach; ?>
-</ul>
+</table>
 
